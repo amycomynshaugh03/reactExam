@@ -15,6 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import Avatar from '@mui/material/Avatar';
 import img from '../../images/film-poster-placeholder.png';
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 export default function MovieCard({ movie, action }) { 
 
@@ -30,6 +31,8 @@ export default function MovieCard({ movie, action }) {
     e.preventDefault();
     addToFavorites(movie);
   };
+
+  const ratingPercent = Math.round(movie.vote_average * 10);
 
 
   return (
@@ -67,8 +70,8 @@ export default function MovieCard({ movie, action }) {
           </Grid>
           <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+             <ThumbUpIcon fontSize="small" />
+              {ratingPercent}%
             </Typography>
           </Grid>
         </Grid>
